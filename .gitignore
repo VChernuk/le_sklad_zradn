@@ -90,3 +90,9 @@ fastlane/test_output
 fastlane/readme.md
 leskladlib/
 leskladuilib/
+android.lock
+/caches
+/daemon
+/native
+/wrapper
+/android
