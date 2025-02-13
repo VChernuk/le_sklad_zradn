@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/issuanceFragment">
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.scanner.view.ScannerFragment"
+        android:label="Сканування">
+        <argument
+            android:name="scannerMode"
+            app:argType="com.kophe.le_sklad_zradn.screens.scanner.view.ScannerMode" />
+        <action
+            android:id="@+id/action_scannerFragment_to_createItemFragment"
+            app:destination="@id/createItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editItemFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.edititem.view.EditItemFragment"
+        android:label="Майно">
+        <action
+            android:id="@+id/action_editItemFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment">
+            <argument
+                android:name="scannerMode"
+                android:defaultValue="SCAN_ONLY"
+                app:argType="com.kophe.le_sklad_zradn.screens.scanner.view.ScannerMode" />
+        </action>
+        <argument
+            android:name="item"
+            app:argType="com.kophe.leskladlib.repository.common.Item"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_editItemFragment_to_createIssuanceFragment"
+            app:destination="@id/createIssuanceFragment" />
+        <action
+            android:id="@+id/action_editItemFragment_to_imageViewerFragment"
+            app:destination="@id/imageViewerFragment" />
+        <action
+            android:id="@+id/action_editItemFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_editItemFragment_to_viewIssuanceFragment"
+            app:destination="@id/viewIssuanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.filter.view.FilterFragment"
+        android:label="Фільтри" >
+        <argument
+            android:name="currentFilter"
+            app:argType="com.kophe.leskladlib.repository.common.Filter"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemsFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.items.view.ItemsFragment"
+        android:label="Майно">
+        <action
+            android:id="@+id/action_itemsFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+        <action
+            android:id="@+id/action_itemsFragment_to_filterFragment"
+            app:destination="@id/filterFragment" />
+        <action
+            android:id="@+id/action_itemsFragment_to_viewItemFragment"
+            app:destination="@id/viewItemFragment" />
+        <action
+            android:id="@+id/action_itemsFragment_to_createItemFragment"
+            app:destination="@id/createItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issuanceFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.issuance.view.IssuanceFragment"
+        android:label="Рух майна"
+        tools:layout="@layout/fragment_issuance">
+        <action
+            android:id="@+id/action_issuanceFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+        <action
+            android:id="@+id/action_issuanceFragment_to_viewIssuanceFragment"
+            app:destination="@id/viewIssuanceFragment" />
+        <action
+            android:id="@+id/action_issuanceFragment_to_createIssuanceFragment"
+            app:destination="@id/createIssuanceFragment" />
+        <action
+            android:id="@+id/action_issuanceFragment_to_viewItemFragment"
+            app:destination="@id/viewItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createIssuanceFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.createissuance.view.CreateIssuanceFragment"
+        android:label="Рух майна">
+        <argument
+            android:name="items"
+            app:argType="com.kophe.leskladlib.repository.common.Item[]"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_createIssuanceFragment_to_selectItemsFragment"
+            app:destination="@id/selectItemsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issuanceScannerFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.issuancescanner.view.IssuanceScannerFragment"
+        android:label="Сканування">
+        <action
+            android:id="@+id/action_issuanceScannerFragment_to_createItemFragment"
+            app:destination="@id/createItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectItemsFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.selectitems.view.SelectItemsFragment"
+        android:label="Майно">
+        <action
+            android:id="@+id/action_selectItemsFragment_to_filterFragment"
+            app:destination="@id/filterFragment" />
+        <argument
+            android:name="barcode"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_selectItemsFragment_to_filterFragment2"
+            app:destination="@id/filterFragment" />
+        <action
+            android:id="@+id/action_selectItemsFragment_to_createItemFragment"
+            app:destination="@id/createItemFragment" />
+        <action
+            android:id="@+id/action_selectItemsFragment_to_issuanceScannerFragment"
+            app:destination="@id/issuanceScannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageViewerFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.imageviewer.ImageViewerFragment"
+        android:label="ImageViewerFragment">
+        <argument
+            android:name="images"
+            app:argType="com.kophe.leskladlib.repository.common.ItemImage[]" />
+        <argument
+            android:name="index"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.camera.CameraFragment"
+        android:label="CameraFragment" />
+    <fragment
+        android:id="@+id/viewItemFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.edititem.view.ViewItemFragment"
+        android:label="ViewItemFragment">
+        <argument
+            android:name="item"
+            app:argType="com.kophe.leskladlib.repository.common.Item" />
+        <action
+            android:id="@+id/action_viewItemFragment_to_imageViewerFragment"
+            app:destination="@id/imageViewerFragment" />
+        <action
+            android:id="@+id/action_viewItemFragment_to_viewIssuanceFragment"
+            app:destination="@id/viewIssuanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createItemFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.edititem.view.CreateItemFragment"
+        android:label="Створення майна">
+        <argument
+            android:name="barcode"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="mode"
+            app:argType="com.kophe.le_sklad_zradn.screens.edititem.view.CreateItemMode" />
+        <action
+            android:id="@+id/action_createItemFragment_to_imageViewerFragment"
+            app:destination="@id/imageViewerFragment" />
+        <action
+            android:id="@+id/action_createItemFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment">
+            <argument
+                android:name="scannerMode"
+                android:defaultValue="SCAN_ONLY"
+                app:argType="com.kophe.le_sklad_zradn.screens.scanner.view.ScannerMode" />
+        </action>
+        <action
+            android:id="@+id/action_createItemFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_createItemFragment_to_selectItemsFragment"
+            app:destination="@id/selectItemsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewIssuanceFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.viewissuance.ViewIssuanceFragment"
+        android:label="ViewIssuanceFragment">
+        <argument
+            android:name="issuance"
+            app:argType="com.kophe.leskladlib.repository.common.Issuance" />
+        <action
+            android:id="@+id/action_viewIssuanceFragment_to_viewItemFragment"
+            app:destination="@id/viewItemFragment" />
+        <action
+            android:id="@+id/action_viewIssuanceFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+        <action
+            android:id="@+id/action_viewIssuanceFragment_to_createIssuanceFragment"
+            app:destination="@id/createIssuanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemsDeliveryNote"
+        android:name="com.kophe.le_sklad_zradn.screens.deliverynotes.DeliveryNotesListFragment"
+        android:label="Delivery Notes"
+        tools:layout="@layout/fragment_delivery_notes_list" />
+</navigation>

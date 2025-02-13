@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.edititem.viewmodel.EditItemViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Контейнер для всіх елементів екрану-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/spacing_almost_medium"
+                android:paddingTop="@dimen/spacing_almost_medium"
+                android:paddingBottom="@dimen/spacing_extra_extra_extra_large">
+
+                <TextView
+                    android:id="@+id/labelBarcode"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="@string/barcode" />
+
+                <TextView
+                    android:id="@+id/barcode"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Barcode" />
+
+                <include
+                    android:id="@+id/photosView"
+                    layout="@layout/view_item_photos"
+                    app:viewModel="@{viewModel}" />
+
+                <TextView
+                    android:id="@+id/labelUnit"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="Відповідальний підрозділ" />
+
+                <TextView
+                    android:id="@+id/unit"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="ПВЗ" />
+
+                <TextView
+                    android:id="@+id/labelLocation"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="@string/location" />
+
+                <TextView
+                    android:id="@+id/location"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Location" />
+
+                <TextView
+                    android:id="@+id/labelSublocation"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="Підлокація" />
+
+                <TextView
+                    android:id="@+id/sublocation"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Sublocation" />
+
+                <!--Випадаючий список для вибору категорії-->
+                <TextView
+                    android:id="@+id/labelCategory"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="@string/category" />
+
+                <TextView
+                    android:id="@+id/category"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Category" />
+
+                <!--мітка для вибору підкатегорії-->
+                <TextView
+                    android:id="@+id/labelSubCategory"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="Підкатегорія" />
+
+                <TextView
+                    android:id="@+id/subcategory"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Subcategory" />
+
+                <!--мітка для вибору власності-->
+                <TextView
+                    android:id="@+id/labelOwnership"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="Власність" />
+
+                <TextView
+                    android:id="@+id/ownership"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Ownership" />
+
+                <TextView
+                    android:id="@+id/labelTitle"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="Назва" />
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Title" />
+
+                <TextView
+                    android:id="@+id/labelID"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="ID" />
+
+                <TextView
+                    android:id="@+id/ID"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="id" />
+
+                <TextView
+                    android:id="@+id/labelSn"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="Серійний номер" />
+
+                <TextView
+                    android:id="@+id/sn"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="sn" />
+
+                <TextView
+                    android:id="@+id/labelComment"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="Comment" />
+
+                <TextView
+                    android:id="@+id/comment"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="Comment" />
+
+                <!--Мітка "Історія"-->
+                <TextView
+                    android:id="@+id/labelHistory"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/spacing_almost_medium"
+                    android:text="Історія" />
+
+                <!--Рядок історії-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/historyRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="afterDescendants"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_row" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            layout="@layout/view_loading"
+            app:viewModel="@{viewModel}" />
+
+    </FrameLayout>
+
+</layout>

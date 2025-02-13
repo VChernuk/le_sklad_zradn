@@ -1,0 +1,54 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.journeyapps.barcodescanner.DecoratedBarcodeView
+            android:id="@+id/barcode_scanner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@+id/buttonsLayout"
+            android:layout_alignParentTop="true"
+            app:zxing_scanner_layout="@layout/custom_barcode_scanner" />
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/centerHorizont"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_almost_medium">
+
+            <Button
+                android:id="@+id/buttonCreateManual"
+                style="@style/defaultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_without_barcode" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/centerHorizont"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:id="@+id/barcodePreview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/buttonsLayout"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/centerHorizont"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

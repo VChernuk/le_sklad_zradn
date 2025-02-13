@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.admin.viewmodel.AdminViewModel" />
+
+    </data>
+
+    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.admin.view.AdminFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                style="@style/defaultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:clickable="false"
+                android:enabled="false"
+                android:onClick="@{(view)->viewModel.setupOwnership()}"
+                android:padding="@dimen/spacing_small"
+                android:text="set all owner types to unknown" />
+
+            <Button
+                style="@style/defaultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:clickable="false"
+                android:enabled="false"
+                android:onClick="@{(view)->viewModel.migrateIssuance()}"
+                android:padding="@dimen/spacing_small"
+                android:text="migrate issuance to timestamp" />
+
+            <Button
+                style="@style/defaultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:onClick="@{(view)->viewModel.backup()}"
+                android:padding="@dimen/spacing_small"
+                android:text="backup" />
+
+            <Button
+                android:id="@+id/restoreButton"
+                style="@style/defaultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_medium"
+                android:padding="@dimen/spacing_small"
+                android:text="restore" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/view_loading"
+            app:viewModel="@{viewModel}" />
+
+    </FrameLayout>
+</layout>

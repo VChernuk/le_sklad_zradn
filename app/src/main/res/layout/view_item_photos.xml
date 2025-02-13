@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Оголошуємо користувацький ViewModel-->
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.edititem.viewmodel.EditItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layoutPhotos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_extra_small"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/labelPhotos"
+                style="@style/defaultTextAccented"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Фото" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/addGalleryImagesButton"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:background="@drawable/bg_button_default"
+                android:padding="@dimen/spacing_small"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:tintMode="multiply"
+                app:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/addImagesButton"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_button_default"
+                android:padding="@dimen/spacing_small"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_camera"
+                android:tintMode="multiply"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/imagesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/image_row" />
+
+    </LinearLayout>
+
+</layout>

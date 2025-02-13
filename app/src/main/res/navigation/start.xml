@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: move admin to another navigation-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.splash.view.SplashFragment"
+        android:label="">
+        <action
+            android:id="@+id/action_splashFragment_to_authFragment"
+            app:destination="@id/authFragment"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.auth.view.AuthFragment"
+        android:label="">
+        <action
+            android:id="@+id/action_authFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.main.MainFragment"
+        android:label="Le Sklad"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_supportFragment"
+            app:destination="@id/supportFragment"
+            app:popUpTo="@id/mainFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_adminFragment"
+            app:destination="@id/navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.support.view.SupportFragment"
+        android:label="Техпідтримка" />
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/adminFragment">
+        <fragment
+            android:id="@+id/createCategoryFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.createcategory.view.CreateCategoryFragment"
+            android:label="Create Category">
+            <argument
+                android:name="category"
+                app:argType="com.kophe.leskladlib.repository.common.Category"
+                app:nullable="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/adminUsersFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.adminusers.view.AdminUsersFragment"
+            android:label="Admin users"
+            tools:layout="@layout/fragment_admin_users" />
+        <fragment
+            android:id="@+id/backupsFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.backups.view.BackupsFragment"
+            android:label="Backups" />
+        <fragment
+            android:id="@+id/createLocationFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.createlocation.view.CreateLocationFragment"
+            android:label="CreateLOcation">
+            <argument
+                android:name="location"
+                app:argType="com.kophe.leskladlib.repository.common.Location"
+                app:nullable="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/categoriesFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.categories.view.CategoriesFragment"
+            android:label="Categories">
+            <action
+                android:id="@+id/action_categoriesFragment_to_createCategoryFragment"
+                app:destination="@id/createCategoryFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/locationsFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.locations.view.LocationsFragment"
+            android:label="Locations">
+            <action
+                android:id="@+id/action_locationsFragment_to_createLocationFragment"
+                app:destination="@id/createLocationFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/scriptsFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.view.ScriptsFragment"
+            android:label="Scripts">
+            <action
+                android:id="@+id/action_scriptsFragment_to_backupsFragment"
+                app:destination="@id/backupsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/adminFragment"
+            android:name="com.kophe.le_sklad_zradn.screens.admin.view.AdminFragment"
+            android:label="Admin Users">
+            <action
+                android:id="@+id/action_adminFragment_to_scriptsFragment"
+                app:destination="@id/scriptsFragment" />
+            <action
+                android:id="@+id/action_adminFragment_to_locationsFragment"
+                app:destination="@id/locationsFragment" />
+            <action
+                android:id="@+id/action_adminFragment_to_categoriesFragment"
+                app:destination="@id/categoriesFragment" />
+            <action
+                android:id="@+id/action_adminFragment_to_adminUsersFragment"
+                app:destination="@id/adminUsersFragment" />
+        </fragment>
+    </navigation>
+
+</navigation>

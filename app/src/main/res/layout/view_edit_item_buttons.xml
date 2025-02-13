@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Оголошуємо користувацький ViewModel-->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.edititem.viewmodel.EditItemViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/editItemActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_tiny">
+        <!-- TODO:  click animation -->
+        <Button
+            android:id="@+id/buttonApply"
+            style="@style/defaultButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:enabled="@{viewModel.saveAvailable}"
+            android:text="@string/save" />
+
+        <Button
+            android:id="@+id/buttonClear"
+            style="@style/defaultButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:text="@string/cancel" />
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/createIssuance"
+        android:title="Видати"
+        app:showAsAction="always" />
+    <item
+        
+android:id="@+id/createAsCopy"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Створити як"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/share"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Експортувати в .txt"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/delete"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Видалити"
+        app:showAsAction="never" />
+
+</menu>

@@ -1,0 +1,6 @@
+[submodule "leskladlib"]
+	path = leskladlib
+	url = git@github.com:VChernuk/leskladlib.git
+[submodule "leskladuilib"]
+	path = leskladuilib
+	url = git@github.com:VChernuk/leskladuilib.git

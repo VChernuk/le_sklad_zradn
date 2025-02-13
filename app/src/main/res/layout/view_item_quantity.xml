@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Оголошуємо користувацький ViewModel-->
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.edititem.viewmodel.EditItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layoutQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_extra_small"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/itemQuantityCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Кількість?" />
+
+        <LinearLayout
+            android:id="@+id/itemQuantityFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/itemQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Кількість"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count) -> viewModel.onQuantityTextChange(text)}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/itemTLName"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content">
+
+                <!--ввід назви-->
+                <EditText
+                    android:id="@+id/itemMeasurement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Одиниця виміру"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count) -> viewModel.onMeasurementTextChange(text)}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

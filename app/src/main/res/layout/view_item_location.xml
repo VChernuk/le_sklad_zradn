@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--Оголошуємо користувацький ViewModel-->
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.edititem.viewmodel.EditItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layoutPhotos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_extra_small"
+        android:animateLayoutChanges="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelLocation"
+                style="@style/defaultTextAccented"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/location" />
+
+            <Spinner
+                android:id="@+id/spinnerLocation"
+                style="@style/defaultSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                app:onItemSelected="@{viewModel.locationSelectionListener}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/viewSublocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelSublocation"
+                style="@style/defaultTextAccented"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Підлокація" />
+
+            <Spinner
+                android:id="@+id/spinnerSublocation"
+                style="@style/defaultSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                app:entries="@{viewModel.sublocationEntries}"
+                app:onItemSelected="@{viewModel.sublocationSelectionListener}" />
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

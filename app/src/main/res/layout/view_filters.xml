@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.common.FilterContainerViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/labelLocation"
+            style="@style/defaultTextAccented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/location" />
+
+        <Spinner
+            android:id="@+id/spinnerLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_small"
+            app:onItemSelected="@{viewModel.locationSelectionListener}" />
+
+        <TextView
+            android:id="@+id/labelSublocation"
+            style="@style/defaultTextAccented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Підлокація" />
+
+        <Spinner
+            android:id="@+id/spinnerSublocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_small"
+            app:onItemSelected="@{viewModel.sublocationSelectionListener}" />
+
+        <TextView
+            android:id="@+id/labelCategory"
+            style="@style/defaultTextAccented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/category" />
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_small"
+            app:onItemSelected="@{viewModel.categorySelectionListener}" />
+
+        <TextView
+            android:id="@+id/labelSubCategory"
+            style="@style/defaultTextAccented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subcategory" />
+
+        <Spinner
+            android:id="@+id/spinnerSubCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_small"
+            app:onItemSelected="@{viewModel.subcategorySelectionListener}" />
+
+        <TextView
+            style="@style/defaultTextAccented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Власність" />
+
+        <Spinner
+            android:id="@+id/spinnerOwnershipType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_small"
+            app:onItemSelected="@{viewModel.ownershipSelectionListener}" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/filtering_6582"
+        android:title="filter"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/search_3824"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/createAsCopy"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Створити як"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/shareXLS"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Експортувати в .xlsx"
+        app:showAsAction="never" />
+</menu>

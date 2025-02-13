@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.admin.adminusers.viewmodel.AdminUsersViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:tools="http://schemas.android.com/tools"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            app:onRefreshListener="@{() -> viewModel.refreshInfo()}"-->
+        <!--            app:refreshing="@{viewModel.refreshingInfo}">-->
+
+        <!--            <androidx.recyclerview.widget.RecyclerView-->
+        <!--                android:id="@+id/issuanceList"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:orientation="vertical"-->
+        <!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+        <!--                tools:itemCount="8"-->
+        <!--                tools:listitem="@layout/item_row" />-->
+        <!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+
+        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--            android:id="@+id/addItemButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="bottom|right"-->
+        <!--            android:layout_margin="@dimen/spacing_large"-->
+        <!--            android:src="@drawable/black_add_button_12020" />-->
+
+        <!--        <include-->
+        <!--            layout="@layout/view_loading"-->
+        <!--            app:viewModel="@{viewModel}" />-->
+
+    </FrameLayout>
+
+</layout>

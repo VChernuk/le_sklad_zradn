@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/filtering_6582"
+        android:title="filter"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/search_3824"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+    <item
+
+        android:id="@+id/action_scan"
+        android:icon="@drawable/scan_icon_white"
+        android:title="Search"
+        app:showAsAction="always" />
+
+</menu>

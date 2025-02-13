@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/issuanceFragment"
+        android:icon="@drawable/airport_5950"
+        android:title="Рух майна" />
+
+    <item
+        android:id="@+id/itemsFragment"
+        android:icon="@drawable/black_warehouse_building_17215"
+        android:title="Майно" />
+
+    <item
+        android:id="@+id/itemsDeliveryNote"
+        android:icon="@drawable/deliverynote"
+        android:title="Накладні" />
+
+</menu>

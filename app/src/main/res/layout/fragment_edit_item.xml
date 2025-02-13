@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Оголошуємо користувацький ViewModel-->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.edititem.viewmodel.EditItemViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Контейнер для всіх елементів екрану-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/spacing_almost_medium"
+                android:paddingTop="@dimen/spacing_almost_medium"
+                android:paddingBottom="@dimen/spacing_extra_extra_extra_large">
+
+                <!--Рядок для введення штрихкоду-->
+                <LinearLayout
+                    android:id="@+id/barcodeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--Поле для введення штрихкоду-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/barcodeTextInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/barcodeEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="@string/barcode"
+                            android:hint="Штрих-код/QR код"
+                            android:inputType="text"
+                            android:onTextChanged="@{(text, start, before, count) -> viewModel.onBarcodeTextChange(text)}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Кнопка сканування штрихкоду-->
+                    <ImageButton
+                        android:id="@+id/buttonScan"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_button_default"
+                        android:padding="@dimen/spacing_small"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/scan_icon"
+                        app:tint="@color/white" />
+
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/photosView"
+                    layout="@layout/view_item_photos"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    android:id="@+id/setView"
+                    layout="@layout/view_item_set"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    android:id="@+id/itemLocationView"
+                    layout="@layout/view_item_location"
+                    app:viewModel="@{viewModel}" />
+
+                <include
+                    android:id="@+id/itemCategoryView"
+                    layout="@layout/view_item_category"
+                    app:viewModel="@{viewModel}" />
+
+                <!--мітка для вибору власності-->
+                <TextView
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_extra_small"
+                    android:text="Власність" />
+
+                <!--вибір власності-->
+                <Spinner
+                    android:id="@+id/spinnerOwnershipType"
+                    style="@style/defaultSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    app:onItemSelected="@{viewModel.ownershipSelectionListener}" />
+
+                <include
+                    android:id="@+id/itemQuantity"
+                    layout="@layout/view_item_quantity"
+                    app:viewModel="@{viewModel}" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/itemTLName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--ввід назви-->
+                    <EditText
+                        android:id="@+id/itemName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/title"
+                        android:inputType="text"
+                        android:onTextChanged="@{(text, start, before, count) -> viewModel.onTitleTextChange(text)}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/itemTLSn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/itemSn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Серійний номер"
+                            android:inputType="text"
+                            android:onTextChanged="@{(text, start, before, count) -> viewModel.onSerialTextChange(text)}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/copyBarcode"
+                        style="@style/defaultButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/spacing_extra_small"
+                        android:text="use barcode" />
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/itemTLID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--ввід ID-->
+                    <EditText
+                        android:id="@+id/itemIdEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="ID (латиниця та/або цифри)"
+                        android:inputType="text"
+                        android:onTextChanged="@{(text, start, before, count) -> viewModel.onIdTextChange(text)}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--ввід коментарів-->
+                <EditText
+                    android:id="@+id/notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/comment"
+                    android:inputType="textMultiLine"
+                    android:onTextChanged="@{(text, start, before, count) -> viewModel.onCommentTextChange(text)}" />
+
+                <!--Мітка "Історія"-->
+                <TextView
+                    android:id="@+id/labelHistory"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/spacing_extra_small"
+                    android:text="Історія" />
+
+                <!--Рядок історії-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/historyRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="afterDescendants"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_row" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/itemButtons"
+            layout="@layout/view_edit_item_buttons"
+            app:viewModel="@{viewModel}" />
+
+        <!--Включення макета для відображення завантаженя-->
+        <include
+            layout="@layout/view_loading"
+            app:viewModel="@{viewModel}" />
+
+    </FrameLayout>
+
+</layout>
