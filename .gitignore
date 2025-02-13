@@ -96,3 +96,4 @@ android.lock
 /native
 /wrapper
 /android
+/.tmp
