@@ -49,7 +49,11 @@ class DeliveryNotesListFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.deliveryNotes.observe(viewLifecycleOwner, Observer { deliveryNotes ->
             loggingUtil.log("${loggingTag()} Loaded ${deliveryNotes.size} delivery notes")
-            deliveryNotesAdapter.updateData(deliveryNotes)
+
+            deliveryNotesAdapter = DeliveryNotesAdapter(deliveryNotes) { deliveryNote ->
+                loggingUtil.log("${loggingTag()} Clicked on delivery note: ${deliveryNote.dn_number}")
+            }
+            recyclerView.adapter = deliveryNotesAdapter
         })
     }
 }

@@ -33,9 +33,7 @@ import com.kophe.leskladlib.repository.userprofile.UserProfileRepository
 
 
 
-import com.kophe.leskladlib.repository.deliverynote.DefaultDeliveryNoteRepository
-import com.kophe.le_sklad_zradn.screens.deliverynotes.view.DeliveryNotesListFragment
-import com.kophe.le_sklad_zradn.screens.deliverynotes.viewmodel.DeliveryNotesViewModel
+import com.kophe.leskladlib.repository.deliverynotes.DefaultDeliveryNoteRepository
 
 import dagger.Module
 import dagger.Provides
