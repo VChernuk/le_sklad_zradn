@@ -205,7 +205,7 @@
             app:destination="@id/createIssuanceFragment" />
     </fragment>
     <fragment
-        android:id="@+id/itemsDeliveryNote"
+        android:id="@+id/deliveryNotesListFragment"
         android:name="com.kophe.le_sklad_zradn.screens.deliverynotes.DeliveryNotesListFragment"
         android:label="Delivery Notes"
         tools:layout="@layout/fragment_delivery_notes_list" />

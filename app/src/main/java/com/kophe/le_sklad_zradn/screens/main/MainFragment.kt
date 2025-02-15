@@ -69,7 +69,7 @@ class MainFragment : BaseViewModelFragment<FragmentMainBinding, HomeNavigationVi
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.itemsFragment
                 || destination.id == R.id.issuanceFragment
-                || destination.id == R.id.itemsDeliveryNote)
+                || destination.id == R.id.deliveryNotesListFragment)
             {
                 binding?.bottomNavigationView?.visibility = VISIBLE
             } else {
@@ -80,7 +80,7 @@ class MainFragment : BaseViewModelFragment<FragmentMainBinding, HomeNavigationVi
 
         baseActivity?.updNav(
             navController,
-            AppBarConfiguration.Builder(R.id.itemsFragment, R.id.issuanceFragment, R.id.itemsDeliveryNote)
+            AppBarConfiguration.Builder(R.id.itemsFragment, R.id.issuanceFragment, R.id.deliveryNotesListFragment)
                 .setDrawerLayout(binding?.drawerLayout).build()
         )
 
