@@ -8,6 +8,8 @@ import com.kophe.le_sklad_zradn.util.constants.LOCATIONS
 import com.kophe.le_sklad_zradn.util.constants.OWNERSHIP_TYPES
 import com.kophe.le_sklad_zradn.util.constants.SUBCATEGORIES
 import com.kophe.le_sklad_zradn.util.constants.SUBLOCATIONS
+import com.kophe.le_sklad_zradn.util.constants.DELIVERYNOTES
+
 import com.kophe.leskladlib.connectivity.ConnectionStateMonitor
 import com.kophe.leskladlib.datasource.currentusersource.CurrentUserSource
 import com.kophe.leskladlib.logging.LoggingUtil
@@ -28,6 +30,9 @@ import com.kophe.leskladlib.repository.ownership.DefaultOwnershipRepository
 import com.kophe.leskladlib.repository.ownership.OwnershipRepository
 import com.kophe.leskladlib.repository.userprofile.DefaultUserProfileRepository
 import com.kophe.leskladlib.repository.userprofile.UserProfileRepository
+
+import com.kophe.leskladlib.repository.deliverynote.DefaultDeliveryNoteRepository
+
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
