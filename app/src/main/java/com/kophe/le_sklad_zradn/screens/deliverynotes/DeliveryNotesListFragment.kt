@@ -107,22 +107,22 @@ class DeliveryNotesListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         deliveryNotesAdapter = DeliveryNotesAdapter(emptyList()) { deliveryNote ->
-            loggingUtil.log("${loggingTag()} Клик по накладной: ${deliveryNote.dn_number}")
+            loggingUtil.log("${loggingTag()} Clicl on delivery note: ${deliveryNote.dn_number}")
         }
         recyclerView.adapter = deliveryNotesAdapter
 
-        loggingUtil.log("${loggingTag()} Вызываем loadDeliveryNotes()")
+        loggingUtil.log("${loggingTag()} Call loadDeliveryNotes()")
         loadDeliveryNotes()
     }
 
     private fun loadDeliveryNotes() {
-        loggingUtil.log("${loggingTag()} Загружаем накладные...")
+        loggingUtil.log("${loggingTag()} Loading delivery notes...")
 
         getDeliveryNotesFromFirestore { deliveryNotes: List<DeliveryNote> ->
-            loggingUtil.log("${loggingTag()} Загружено ${deliveryNotes.size} накладных")
+            loggingUtil.log("${loggingTag()} Loaded ${deliveryNotes.size} delivery notes")
 
             deliveryNotesAdapter = DeliveryNotesAdapter(deliveryNotes) { deliveryNote ->
-                loggingUtil.log("${loggingTag()} Клик по накладной: ${deliveryNote.dn_number}")
+                loggingUtil.log("${loggingTag()} Click on delivery note: ${deliveryNote.dn_number}")
             }
             recyclerView.adapter = deliveryNotesAdapter
             deliveryNotesAdapter.notifyDataSetChanged()
