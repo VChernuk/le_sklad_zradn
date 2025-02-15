@@ -18,7 +18,7 @@ import com.kophe.le_sklad_zradn.screens.issuance.view.IssuanceFragment
 import com.kophe.le_sklad_zradn.screens.issuancescanner.view.IssuanceScannerFragment
 import com.kophe.le_sklad_zradn.screens.items.view.ItemsFragment
 import com.kophe.le_sklad_zradn.screens.admin.locations.view.LocationsFragment
-import com.kophe.le_sklad_zradn.screens.deliverynotes.DeliveryNotesListFragment
+import com.kophe.le_sklad_zradn.screens.deliverynotes.view.DeliveryNotesListFragment
 import com.kophe.le_sklad_zradn.screens.main.MainFragment
 import com.kophe.le_sklad_zradn.screens.navdrawer.HomeNavigationFragment
 import com.kophe.le_sklad_zradn.screens.selectitems.view.SelectItemsFragment

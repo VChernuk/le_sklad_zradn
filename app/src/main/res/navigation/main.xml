@@ -206,7 +206,7 @@
     </fragment>
     <fragment
         android:id="@+id/deliveryNotesListFragment"
-        android:name="com.kophe.le_sklad_zradn.screens.deliverynotes.DeliveryNotesListFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.deliverynotes.view.DeliveryNotesListFragment"
         android:label="Delivery Notes"
         tools:layout="@layout/fragment_delivery_notes_list" />
 </navigation>
