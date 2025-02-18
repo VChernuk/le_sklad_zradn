@@ -34,6 +34,7 @@ import com.kophe.leskladlib.repository.userprofile.UserProfileRepository
 
 
 import com.kophe.leskladlib.repository.deliverynotes.DefaultDeliveryNoteRepository
+import com.kophe.leskladlib.repository.deliverynotes.DeliveryNotesRepository
 
 import dagger.Module
 import dagger.Provides
@@ -112,9 +113,10 @@ class DataModule {
     @Provides
     @Singleton
     internal fun provideDeliveryNotesRepository(
-        loggingUtil: LoggingUtil, connectionStateMonitor: ConnectionStateMonitor
-    ): OwnershipRepository = DefaultDeliveryNoteRepository(
-        loggingUtil, builder = repositoryBuilder, connectionStateMonitor
+        loggingUtil: LoggingUtil,
+        connectionStateMonitor: ConnectionStateMonitor
+    ): DeliveryNotesRepository = DefaultDeliveryNoteRepository(
+        loggingUtil, connectionStateMonitor
     )
 
     @Provides
