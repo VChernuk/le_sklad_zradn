@@ -39,7 +39,7 @@ class DeliveryNotesListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         deliveryNotesAdapter = DeliveryNotesAdapter(emptyList()) { deliveryNote ->
-            loggingUtil.log("${loggingTag()} Clicked on delivery note: ${deliveryNote.dn_number}")
+            loggingUtil.log("${loggingTag()} Clicked on delivery note: ${deliveryNote.number}")
         }
         recyclerView.adapter = deliveryNotesAdapter
 
@@ -51,7 +51,7 @@ class DeliveryNotesListFragment : Fragment() {
             loggingUtil.log("${loggingTag()} Loaded ${deliveryNotes.size} delivery notes")
 
             deliveryNotesAdapter = DeliveryNotesAdapter(deliveryNotes) { deliveryNote ->
-                loggingUtil.log("${loggingTag()} Clicked on delivery note: ${deliveryNote.dn_number}")
+                loggingUtil.log("${loggingTag()} Clicked on delivery note: ${deliveryNote.number}")
             }
             recyclerView.adapter = deliveryNotesAdapter
         })
