@@ -110,13 +110,23 @@ class DataModule {
         loggingUtil, builder = repositoryBuilder, connectionStateMonitor
     )
 
+//    @Provides
+//    @Singleton
+//    internal fun provideDeliveryNotesRepository(
+//        loggingUtil: LoggingUtil,
+//        connectionStateMonitor: ConnectionStateMonitor
+//    ): DeliveryNotesRepository = DefaultDeliveryNoteRepository(
+//        loggingUtil,repositoryBuilder, connectionStateMonitor
+//    )
     @Provides
     @Singleton
     internal fun provideDeliveryNotesRepository(
         loggingUtil: LoggingUtil,
-        connectionStateMonitor: ConnectionStateMonitor
+        locationsRepository: LocationsRepository,
+        itemsRepository: ItemsRepository,
+        userProfileRepository: UserProfileRepository
     ): DeliveryNotesRepository = DefaultDeliveryNoteRepository(
-        loggingUtil, connectionStateMonitor
+        loggingUtil, repositoryBuilder, locationsRepository, itemsRepository, null, userProfileRepository
     )
 
     @Provides

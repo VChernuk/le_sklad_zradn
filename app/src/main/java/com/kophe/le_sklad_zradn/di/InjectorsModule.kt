@@ -104,5 +104,5 @@ internal abstract class InjectorsModule {
     abstract fun imageViewerFragment(): ImageViewerFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeDeliveryNotesListFragment(): DeliveryNotesListFragment
+    abstract fun deliveryNotesListFragment(): DeliveryNotesListFragment
 }
