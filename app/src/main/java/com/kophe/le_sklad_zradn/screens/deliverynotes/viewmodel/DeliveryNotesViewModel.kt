@@ -21,7 +21,7 @@ class DeliveryNotesViewModel @Inject constructor(
     val deliveryNotes: LiveData<List<DeliveryNote>> get() = _deliveryNotes
 
     init {
-        loggingUtil.log("${loggingTag()}DeliveryNotesViewModel initialized")
+        loggingUtil.log("${loggingTag()} DeliveryNotesViewModel initialized")
         loadDeliveryNotes()
     }
 
