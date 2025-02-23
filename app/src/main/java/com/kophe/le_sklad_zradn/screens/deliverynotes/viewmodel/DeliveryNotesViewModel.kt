@@ -21,10 +21,20 @@ class DeliveryNotesViewModel @Inject constructor(
     val deliveryNotes: LiveData<List<DeliveryNote>> get() = _deliveryNotes
 
     init {
+        loggingUtil.log("${loggingTag()}DeliveryNotesViewModel initialized")
         loadDeliveryNotes()
     }
 
     private fun loadDeliveryNotes() {
+        loggingUtil.log("${loggingTag()} Fetching delivery notes...")
+        viewModelScope.launch {
+            repository.getDeliveryNotesFlow().collect { notes ->
+                loggingUtil.log("${loggingTag()} Received ${notes.size} delivery notes")
+                _deliveryNotes.value = notes
+            }
+        }
+    }
+    private fun loadDeliveryNotes_old() {
         loggingUtil.log("${loggingTag()} Loading delivery notes...")
         
         viewModelScope.launch {
