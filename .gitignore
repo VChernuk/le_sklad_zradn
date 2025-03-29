@@ -88,6 +88,7 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+<<<<<<< HEAD
 leskladlib/
 leskladuilib/
 android.lock
@@ -97,3 +98,5 @@ android.lock
 /wrapper
 /android
 /.tmp
+=======
+>>>>>>> parent of 1e36f25 (upd gitignore)

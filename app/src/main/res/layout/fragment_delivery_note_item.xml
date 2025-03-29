@@ -27,4 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Підписант" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/spacing_large"
+        android:src="@drawable/black_add_button_12020" />
+
+
 </LinearLayout>
