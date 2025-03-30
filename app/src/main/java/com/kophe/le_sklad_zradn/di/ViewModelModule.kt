@@ -14,7 +14,6 @@ import com.kophe.le_sklad_zradn.screens.filter.viewmodel.FilterViewModel
 import com.kophe.le_sklad_zradn.screens.issuance.viewmodel.IssuanceViewModel
 import com.kophe.le_sklad_zradn.screens.items.viewmodel.ItemsViewModel
 import com.kophe.le_sklad_zradn.screens.admin.locations.viewmodel.LocationsViewModel
-import com.kophe.le_sklad_zradn.screens.deliverynotes.viewmodel.DeliveryNotesViewModel
 import com.kophe.le_sklad_zradn.screens.navdrawer.HomeNavigationViewModel
 import com.kophe.le_sklad_zradn.screens.selectitems.viewmodel.SelectItemsViewModel
 import com.kophe.le_sklad_zradn.screens.splash.viewmodel.SplashViewModel
@@ -107,11 +106,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CreateCategoryViewModel::class)
     internal abstract fun createCreateCategoryViewModel(viewModel: CreateCategoryViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(DeliveryNotesViewModel::class)
-    abstract fun bindDeliveryNotesViewModel(viewModel: DeliveryNotesViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

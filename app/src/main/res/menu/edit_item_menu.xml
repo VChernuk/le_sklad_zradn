@@ -7,13 +7,6 @@
         android:title="Видати"
         app:showAsAction="always" />
     <item
-        
-android:id="@+id/createAsCopy"
-        android:icon="@android:drawable/ic_menu_share"
-        android:title="Створити як"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/share"
         android:icon="@android:drawable/ic_menu_share"
         android:title="Експортувати в .txt"

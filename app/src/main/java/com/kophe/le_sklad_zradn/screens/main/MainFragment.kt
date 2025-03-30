@@ -67,10 +67,7 @@ class MainFragment : BaseViewModelFragment<FragmentMainBinding, HomeNavigationVi
         val navController = navHostFragment.findNavController()
         binding?.bottomNavigationView?.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.itemsFragment
-                || destination.id == R.id.issuanceFragment
-                || destination.id == R.id.deliveryNotesListFragment)
-            {
+            if (destination.id == R.id.itemsFragment || destination.id == R.id.issuanceFragment) {
                 binding?.bottomNavigationView?.visibility = VISIBLE
             } else {
                 binding?.bottomNavigationView?.visibility = GONE
@@ -80,7 +77,7 @@ class MainFragment : BaseViewModelFragment<FragmentMainBinding, HomeNavigationVi
 
         baseActivity?.updNav(
             navController,
-            AppBarConfiguration.Builder(R.id.itemsFragment, R.id.issuanceFragment, R.id.deliveryNotesListFragment)
+            AppBarConfiguration.Builder(R.id.itemsFragment, R.id.issuanceFragment)
                 .setDrawerLayout(binding?.drawerLayout).build()
         )
 

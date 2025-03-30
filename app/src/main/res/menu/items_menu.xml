@@ -13,11 +13,6 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/createAsCopy"
-        android:icon="@android:drawable/ic_menu_share"
-        android:title="Створити як"
-        app:showAsAction="never" />
 
     <item
         android:id="@+id/shareXLS"

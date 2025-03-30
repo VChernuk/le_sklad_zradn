@@ -56,7 +56,6 @@ class MainActivity : BaseActivity() {
             R.id.backupsFragment,
             R.id.createCategoryFragment,
             R.id.createLocationFragment
-            , R.id.deliveryNotesListFragment
         ).build()
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         navControllerWR = WeakReference(navController)

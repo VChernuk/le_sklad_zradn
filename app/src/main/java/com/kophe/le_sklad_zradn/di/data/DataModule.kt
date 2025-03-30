@@ -8,8 +8,6 @@ import com.kophe.le_sklad_zradn.util.constants.LOCATIONS
 import com.kophe.le_sklad_zradn.util.constants.OWNERSHIP_TYPES
 import com.kophe.le_sklad_zradn.util.constants.SUBCATEGORIES
 import com.kophe.le_sklad_zradn.util.constants.SUBLOCATIONS
-import com.kophe.le_sklad_zradn.util.constants.DELIVERYNOTES
-
 import com.kophe.leskladlib.connectivity.ConnectionStateMonitor
 import com.kophe.leskladlib.datasource.currentusersource.CurrentUserSource
 import com.kophe.leskladlib.logging.LoggingUtil
@@ -30,12 +28,6 @@ import com.kophe.leskladlib.repository.ownership.DefaultOwnershipRepository
 import com.kophe.leskladlib.repository.ownership.OwnershipRepository
 import com.kophe.leskladlib.repository.userprofile.DefaultUserProfileRepository
 import com.kophe.leskladlib.repository.userprofile.UserProfileRepository
-
-
-
-import com.kophe.leskladlib.repository.deliverynotes.DefaultDeliveryNoteRepository
-import com.kophe.leskladlib.repository.deliverynotes.DeliveryNotesRepository
-
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -56,7 +48,6 @@ class DataModule {
             "users",
             "admin_users",
             "units"
-            , DELIVERYNOTES
         )
     }
 
@@ -110,24 +101,6 @@ class DataModule {
         loggingUtil, builder = repositoryBuilder, connectionStateMonitor
     )
 
-//    @Provides
-//    @Singleton
-//    internal fun provideDeliveryNotesRepository(
-//        loggingUtil: LoggingUtil,
-//        connectionStateMonitor: ConnectionStateMonitor
-//    ): DeliveryNotesRepository = DefaultDeliveryNoteRepository(
-//        loggingUtil,repositoryBuilder, connectionStateMonitor
-//    )
-    @Provides
-    @Singleton
-    internal fun provideDeliveryNotesRepository(
-        loggingUtil: LoggingUtil,
-        locationsRepository: LocationsRepository,
-        itemsRepository: ItemsRepository,
-        userProfileRepository: UserProfileRepository
-    ): DeliveryNotesRepository = DefaultDeliveryNoteRepository(
-        loggingUtil, repositoryBuilder, locationsRepository, itemsRepository, null, userProfileRepository
-    )
 
     @Provides
     @Singleton
