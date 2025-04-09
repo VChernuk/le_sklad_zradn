@@ -14,10 +14,14 @@ import com.kophe.le_sklad_zradn.R
 import com.kophe.le_sklad_zradn.databinding.FragmentDeliveryNoteBinding
 import com.kophe.le_sklad_zradn.screens.common.BaseViewModelFragment
 import com.kophe.le_sklad_zradn.screens.common.ViewModelEvent.InfoAvailable
-import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToCreateDeliveryNoteFragment
-import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToEditItemFragment
-import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToViewDeliveryNoteFragment
-import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToViewItemFragment
+//import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToCreateDeliveryNoteFragment
+//import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToEditItemFragment
+//import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToViewDeliveryNoteFragment
+//import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliveryNoteFragmentToViewItemFragment
+import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliverynoteFragmentToCreateDeliveryNoteFragment
+import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliverynoteFragmentToEditItemFragment
+import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliverynoteFragmentToViewDeliveryNoteFragment
+import com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragmentDirections.actionDeliverynoteFragmentToViewItemFragment
 import com.kophe.le_sklad_zradn.screens.deliverynote.viewmodel.DeliveryNoteViewModel
 import com.kophe.leskladlib.logging.LoggingUtil
 import com.kophe.leskladlib.loggingTag
@@ -76,13 +80,13 @@ class DeliveryNoteFragment : BaseViewModelFragment<FragmentDeliveryNoteBinding, 
         viewModel.entries.observe(viewLifecycleOwner) { reloadItems(it) }
         viewModel.writeAvailable.observe(viewLifecycleOwner) {
             showItem = if (it) { item ->
-                navigate(actionDeliveryNoteFragmentToEditItemFragment(item))
+                navigate(actionDeliverynoteFragmentToEditItemFragment(item))
             } else { item ->
-                navigate(actionDeliveryNoteFragmentToViewItemFragment(item))
+                navigate(actionDeliverynoteFragmentToViewItemFragment(item))
             }
             binding?.addItemButton?.isVisible = it == true
             binding?.addItemButton?.setOnClickListener {
-                navigate(actionDeliveryNoteFragmentToCreateDeliveryNoteFragment(null))
+                navigate(actionDeliverynoteFragmentToCreateDeliveryNoteFragment(null))
             }
         }
         observeRequestStatus()
@@ -110,7 +114,7 @@ class DeliveryNoteFragment : BaseViewModelFragment<FragmentDeliveryNoteBinding, 
     }
 
     override fun selectItem(item: DeliveryNote) {
-        navigate(actionDeliveryNoteFragmentToViewDeliveryNoteFragment(item))
+        navigate(actionDeliverynoteFragmentToViewDeliveryNoteFragment(item))
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

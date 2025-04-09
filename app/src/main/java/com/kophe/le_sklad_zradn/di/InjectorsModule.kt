@@ -89,7 +89,7 @@ internal abstract class InjectorsModule {
     abstract fun issuanceScannerFragment(): IssuanceScannerFragment
     
     @ContributesAndroidInjector
-    abstract fun deliverynoteFragment(): DeliveryNoteFragment
+    abstract fun deliveryNoteFragment(): DeliveryNoteFragment
 
     @ContributesAndroidInjector
     abstract fun viewDeliveryNoteFragment(): ViewDeliveryNoteFragment

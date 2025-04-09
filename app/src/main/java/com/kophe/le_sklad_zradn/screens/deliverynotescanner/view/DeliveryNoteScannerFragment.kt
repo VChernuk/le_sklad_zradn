@@ -115,7 +115,7 @@ class DeliveryNoteScannerFragment : BaseFragment<FragmentDeliveryNoteScannerBind
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
-        android.R.id.home, R.id.deliverynoteScannerDone -> {
+        android.R.id.home, R.id.issuanceScannerDone -> {
             setupResult()
             navigateUp()
             true

@@ -1,6 +1,7 @@
 package com.kophe.le_sklad_zradn.util.export
 
 import com.kophe.leskladlib.repository.common.Issuance
+import com.kophe.leskladlib.repository.common.DeliveryNote
 import com.kophe.leskladlib.repository.common.Item
 import java.io.File
 

@@ -174,7 +174,7 @@ class CreateDeliveryNoteFragment :
     private fun setupTitle() {
         val selectedItemsCount = viewModel.selectedItems.size
         baseActivity?.setTitle(
-            "Рух майна ${
+            "Накладна ${
                 System.currentTimeMillis().timestampToFormattedDate()
             } ($selectedItemsCount обрано)"
         )

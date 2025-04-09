@@ -122,10 +122,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/deliverynoteFragment"
+        android:id="@+id/deliveryNoteFragment"
         android:name="com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragment"
-        android:label="Рух майна"
-        tools:layout="@layout/fragment_deliverynote">
+        android:label="Накладні"
+        tools:layout="@layout/fragment_delivery_note">
         <action
             android:id="@+id/action_deliverynoteFragment_to_editItemFragment"
             app:destination="@id/editItemFragment" />
@@ -143,7 +143,7 @@
     <fragment
         android:id="@+id/createDeliveryNoteFragment"
         android:name="com.kophe.le_sklad_zradn.screens.createdeliverynote.view.CreateDeliveryNoteFragment"
-        android:label="Рух майна">
+        android:label="Накладні">
         <argument
             android:name="items"
             app:argType="com.kophe.leskladlib.repository.common.Item[]"

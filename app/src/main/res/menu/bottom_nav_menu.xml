@@ -12,7 +12,7 @@
         android:title="Майно" />
 
     <item
-        android:id="@+id/deliveryNoteListFragment"
+        android:id="@+id/deliveryNoteFragment"
         android:icon="@drawable/deliverynote"
         android:title="Накладні" />
 
