@@ -9,15 +9,18 @@ import com.kophe.le_sklad_zradn.screens.admin.createlocation.viewmodel.CreateLoc
 import com.kophe.le_sklad_zradn.screens.admin.viewmodel.AdminViewModel
 import com.kophe.le_sklad_zradn.screens.auth.viewmodel.AuthViewModel
 import com.kophe.le_sklad_zradn.screens.createissuance.viewmodel.CreateIssuanceViewModel
+import com.kophe.le_sklad_zradn.screens.createdeliverynote.viewmodel.CreateDeliveryNoteViewModel
 import com.kophe.le_sklad_zradn.screens.edititem.viewmodel.EditItemViewModel
 import com.kophe.le_sklad_zradn.screens.filter.viewmodel.FilterViewModel
 import com.kophe.le_sklad_zradn.screens.issuance.viewmodel.IssuanceViewModel
+import com.kophe.le_sklad_zradn.screens.deliverynote.viewmodel.DeliveryNoteViewModel
 import com.kophe.le_sklad_zradn.screens.items.viewmodel.ItemsViewModel
 import com.kophe.le_sklad_zradn.screens.admin.locations.viewmodel.LocationsViewModel
 import com.kophe.le_sklad_zradn.screens.navdrawer.HomeNavigationViewModel
 import com.kophe.le_sklad_zradn.screens.selectitems.viewmodel.SelectItemsViewModel
 import com.kophe.le_sklad_zradn.screens.splash.viewmodel.SplashViewModel
 import com.kophe.le_sklad_zradn.screens.viewissuance.ViewIssuanceViewModel
+import com.kophe.le_sklad_zradn.screens.viewdeliverynote.ViewDeliveryNoteViewModel
 import com.kophe.le_sklad_zradn.util.viewmodelfactory.ViewModelFactory
 import com.kophe.le_sklad_zradn.util.viewmodelfactory.ViewModelKey
 import dagger.Binds
@@ -59,6 +62,11 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
+    @ViewModelKey(DeliveryNoteViewModel::class)
+    internal abstract fun deliverynoteViewModel(viewModel: DeliveryNoteViewModel): ViewModel
+
+    @Binds
+    @IntoMap
     @ViewModelKey(SelectItemsViewModel::class)
     internal abstract fun selectItemsViewModel(viewModel: SelectItemsViewModel): ViewModel
 
@@ -66,6 +74,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CreateIssuanceViewModel::class)
     internal abstract fun createIssuanceViewModel(viewModel: CreateIssuanceViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CreateDeliveryNoteViewModel::class)
+    internal abstract fun createDeliveryNoteViewModel(viewModel: CreateDeliveryNoteViewModel): ViewModel
 
     @Binds
     @IntoMap
@@ -81,6 +94,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ViewIssuanceViewModel::class)
     internal abstract fun createViewIssuanceViewModel(viewModel: ViewIssuanceViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ViewDeliveryNoteViewModel::class)
+    internal abstract fun createViewDeliveryNoteViewModel(viewModel: ViewDeliveryNoteViewModel): ViewModel
 
     @Binds
     @IntoMap

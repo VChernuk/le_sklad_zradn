@@ -7,6 +7,7 @@ import com.aspose.cells.Style
 import com.aspose.cells.Workbook
 import com.aspose.cells.Worksheet
 import com.kophe.leskladlib.repository.common.Issuance
+import com.kophe.leskladlib.repository.common.DeliveryNote
 import com.kophe.leskladlib.repository.common.Item
 import java.io.File
 import java.lang.ref.WeakReference
@@ -30,12 +31,49 @@ class DefaultExportUtil(context: Context) : ExportUtil {
         return file
     }
 
+    override fun exportDeliveryNote(deliverynote: DeliveryNote, name: String): File? {
+        val workbook = Workbook()
+        setupDeliveryNoteTitlesRow(workbook.worksheets[0])
+        deliverynote.items.forEachIndexed { index, deliverynoteItem ->
+            workbook.worksheets[0].cells["A${index + 2}"].putValue(deliverynoteItem.title)
+            workbook.worksheets[0].cells["B${index + 2}"].putValue(deliverynote.from)
+            workbook.worksheets[0].cells["C${index + 2}"].putValue(deliverynote.to)
+            workbook.worksheets[0].cells["D${index + 2}"].putValue(deliverynote.date)
+            workbook.worksheets[0].cells["E${index + 2}"].putValue(deliverynote.notes)
+        }
+        val file = excelFile(name)
+        workbook.save(file?.path)
+        return file
+    }
+
     override fun itemToText(item: Item): String =
         "${item.title ?: "-"}\n" + "ID: ${item.id ?: "-"}\n" + "Barcode: ${item.barcode ?: "-"}\n " + "Категорія: ${item.category?.title ?: "-"}\n " + "Підкатегорія: ${item.subcategories.firstOrNull()?.title ?: "-"}\n " + "Локація: ${item.location?.title ?: "-"}\n " + "Власність: ${item.ownershipType?.title ?: "-"}\n ".replace(
             "[", ""
         ).replace("]", "").replace(",", "") + "\nКоментар: ${item.notes ?: "-"}"
 
     private fun setupIssuanceTitlesRow(worksheet: Worksheet) {
+        val a1 = worksheet.cells["A1"]
+        a1.putValue("Майно")
+        setBold(a1)
+
+        val b1 = worksheet.cells["B1"]
+        b1.putValue("Видав")
+        setBold(b1)
+
+        val c1 = worksheet.cells["C1"]
+        c1.putValue("Отримувач")
+        setBold(c1)
+
+        val d1 = worksheet.cells["D1"]
+        d1.putValue("Дата")
+        setBold(d1)
+
+        val e1 = worksheet.cells["E1"]
+        e1.putValue("Примітки")
+        setBold(e1)
+    }
+
+    private fun setupDeliveryNoteTitlesRow(worksheet: Worksheet) {
         val a1 = worksheet.cells["A1"]
         a1.putValue("Майно")
         setBold(a1)

@@ -15,6 +15,7 @@
             android:id="@+id/action_scannerFragment_to_createItemFragment"
             app:destination="@id/createItemFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/editItemFragment"
         android:name="com.kophe.le_sklad_zradn.screens.edititem.view.EditItemFragment"
@@ -35,6 +36,9 @@
             android:id="@+id/action_editItemFragment_to_createIssuanceFragment"
             app:destination="@id/createIssuanceFragment" />
         <action
+            android:id="@+id/action_editItemFragment_to_createDeliveryNoteFragment"
+            app:destination="@id/createDeliveryNoteFragment" />
+        <action
             android:id="@+id/action_editItemFragment_to_imageViewerFragment"
             app:destination="@id/imageViewerFragment" />
         <action
@@ -43,7 +47,11 @@
         <action
             android:id="@+id/action_editItemFragment_to_viewIssuanceFragment"
             app:destination="@id/viewIssuanceFragment" />
+        <action
+            android:id="@+id/action_editItemFragment_to_viewDeliveryNoteFragment"
+            app:destination="@id/viewDeliveryNoteFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/filterFragment"
         android:name="com.kophe.le_sklad_zradn.screens.filter.view.FilterFragment"
@@ -53,6 +61,7 @@
             app:argType="com.kophe.leskladlib.repository.common.Filter"
             app:nullable="true" />
     </fragment>
+
     <fragment
         android:id="@+id/itemsFragment"
         android:name="com.kophe.le_sklad_zradn.screens.items.view.ItemsFragment"
@@ -70,6 +79,7 @@
             android:id="@+id/action_itemsFragment_to_createItemFragment"
             app:destination="@id/createItemFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/issuanceFragment"
         android:name="com.kophe.le_sklad_zradn.screens.issuance.view.IssuanceFragment"
@@ -88,6 +98,7 @@
             android:id="@+id/action_issuanceFragment_to_viewItemFragment"
             app:destination="@id/viewItemFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/createIssuanceFragment"
         android:name="com.kophe.le_sklad_zradn.screens.createissuance.view.CreateIssuanceFragment"
@@ -100,6 +111,7 @@
             android:id="@+id/action_createIssuanceFragment_to_selectItemsFragment"
             app:destination="@id/selectItemsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/issuanceScannerFragment"
         android:name="com.kophe.le_sklad_zradn.screens.issuancescanner.view.IssuanceScannerFragment"
@@ -108,6 +120,48 @@
             android:id="@+id/action_issuanceScannerFragment_to_createItemFragment"
             app:destination="@id/createItemFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/deliverynoteFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.deliverynote.view.DeliveryNoteFragment"
+        android:label="Рух майна"
+        tools:layout="@layout/fragment_deliverynote">
+        <action
+            android:id="@+id/action_deliverynoteFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+        <action
+            android:id="@+id/action_deliverynoteFragment_to_viewDeliveryNoteFragment"
+            app:destination="@id/viewDeliveryNoteFragment" />
+        <action
+            android:id="@+id/action_deliverynoteFragment_to_createDeliveryNoteFragment"
+            app:destination="@id/createDeliveryNoteFragment" />
+        <action
+            android:id="@+id/action_deliverynoteFragment_to_viewItemFragment"
+            app:destination="@id/viewItemFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/createDeliveryNoteFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.createdeliverynote.view.CreateDeliveryNoteFragment"
+        android:label="Рух майна">
+        <argument
+            android:name="items"
+            app:argType="com.kophe.leskladlib.repository.common.Item[]"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_createDeliveryNoteFragment_to_selectItemsFragment"
+            app:destination="@id/selectItemsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deliverynoteScannerFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.deliverynotescanner.view.DeliveryNoteScannerFragment"
+        android:label="Сканування">
+        <action
+            android:id="@+id/action_deliverynoteScannerFragment_to_createItemFragment"
+            app:destination="@id/createItemFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/selectItemsFragment"
         android:name="com.kophe.le_sklad_zradn.screens.selectitems.view.SelectItemsFragment"
@@ -128,7 +182,11 @@
         <action
             android:id="@+id/action_selectItemsFragment_to_issuanceScannerFragment"
             app:destination="@id/issuanceScannerFragment" />
+        <action
+            android:id="@+id/action_selectItemsFragment_to_deliverynoteScannerFragment"
+            app:destination="@id/deliverynoteScannerFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/imageViewerFragment"
         android:name="com.kophe.le_sklad_zradn.screens.imageviewer.ImageViewerFragment"
@@ -140,10 +198,12 @@
             android:name="index"
             app:argType="integer" />
     </fragment>
+
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.kophe.le_sklad_zradn.screens.camera.CameraFragment"
         android:label="CameraFragment" />
+
     <fragment
         android:id="@+id/viewItemFragment"
         android:name="com.kophe.le_sklad_zradn.screens.edititem.view.ViewItemFragment"
@@ -157,7 +217,11 @@
         <action
             android:id="@+id/action_viewItemFragment_to_viewIssuanceFragment"
             app:destination="@id/viewIssuanceFragment" />
+        <action
+            android:id="@+id/action_viewItemFragment_to_viewDeliveryNoteFragment"
+            app:destination="@id/viewDeliveryNoteFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/createItemFragment"
         android:name="com.kophe.le_sklad_zradn.screens.edititem.view.CreateItemFragment"
@@ -187,6 +251,7 @@
             android:id="@+id/action_createItemFragment_to_selectItemsFragment"
             app:destination="@id/selectItemsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/viewIssuanceFragment"
         android:name="com.kophe.le_sklad_zradn.screens.viewissuance.ViewIssuanceFragment"
@@ -203,5 +268,23 @@
         <action
             android:id="@+id/action_viewIssuanceFragment_to_createIssuanceFragment"
             app:destination="@id/createIssuanceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewDeliveryNoteFragment"
+        android:name="com.kophe.le_sklad_zradn.screens.viewdeliverynote.ViewDeliveryNoteFragment"
+        android:label="ViewDeliveryNoteFragment">
+        <argument
+            android:name="deliverynote"
+            app:argType="com.kophe.leskladlib.repository.common.DeliveryNote" />
+        <action
+            android:id="@+id/action_viewDeliveryNoteFragment_to_viewItemFragment"
+            app:destination="@id/viewItemFragment" />
+        <action
+            android:id="@+id/action_viewDeliveryNoteFragment_to_editItemFragment"
+            app:destination="@id/editItemFragment" />
+        <action
+            android:id="@+id/action_viewDeliveryNoteFragment_to_createDeliveryNoteFragment"
+            app:destination="@id/createDeliveryNoteFragment" />
     </fragment>
 </navigation>

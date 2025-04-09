@@ -22,6 +22,12 @@ class AdminViewModel @Inject constructor(
         }
     }
 
+    fun migrateDeliveryNote() {
+        doInBackground {
+            performTask<Any, LSError>({ adminRepository.migrateDeliveryNoteToTimestamp() })
+        }
+    }
+
     fun backup() {
         doInBackground {
             performTask<Any, LSError>({ adminRepository.createBackupFile() })

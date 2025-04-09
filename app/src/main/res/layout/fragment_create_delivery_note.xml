@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.createdeliverynote.viewmodel.CreateDeliveryNoteViewModel" />
+
+    </data>
+
+    <!-- TODO: empty state-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_almost_medium">
+
+            <TextView
+                android:id="@+id/labelPassLocation"
+                style="@style/defaultTextAccented"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Отримувач (локація)" />
+
+            <Spinner
+                android:id="@+id/spinnerLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_small"
+                app:entries="@{viewModel.locationEntries}"
+                app:onItemSelected="@{viewModel.locationSelectionListener}" />
+
+            <TextView
+                android:id="@+id/labelSublocation"
+                style="@style/defaultTextAccented"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Підлокація" />
+
+            <Spinner
+                android:id="@+id/spinnerSublocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_small"
+                app:entries="@{viewModel.sublocationEntries}"
+                app:onItemSelected="@{viewModel.sublocationSelectionListener}" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/receiverTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--ввід ID-->
+                <EditText
+                    android:id="@+id/receiverET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Позивний отримувача"
+                    android:inputType="text"
+                    android:onTextChanged="@{(text, start, before, count) -> viewModel.onReceiverTextChange(text)}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/passingNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|top"
+                android:hint="@string/comment"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:onTextChanged="@{(text, start, before, count) -> viewModel.onCommentTextChange(text)}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/deliverynoteItemsList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="12"
+                tools:listitem="@layout/item_row" />
+
+            <LinearLayout
+                android:id="@+id/buttonsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonApply"
+                    style="@style/defaultButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:enabled="@{viewModel.submitAvailable}"
+                    android:text="Видати" />
+
+                <Button
+                    android:id="@+id/buttonCreate"
+                    style="@style/defaultButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:text="@string/add_items"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonReissue"
+                style="@style/defaultButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_small"
+                android:text="Перевидати"
+                android:textAlignment="center"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/view_loading"
+            app:viewModel="@{viewModel}" />
+
+    </FrameLayout>
+
+</layout>

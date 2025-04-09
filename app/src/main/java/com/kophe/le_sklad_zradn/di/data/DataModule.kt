@@ -3,6 +3,7 @@ package com.kophe.le_sklad_zradn.di.data
 import android.content.Context
 import com.kophe.le_sklad_zradn.util.constants.CATEGORIES
 import com.kophe.le_sklad_zradn.util.constants.ISSUANCE
+import com.kophe.le_sklad_zradn.util.constants.DELIVERYNOTE
 import com.kophe.le_sklad_zradn.util.constants.ITEMS
 import com.kophe.le_sklad_zradn.util.constants.LOCATIONS
 import com.kophe.le_sklad_zradn.util.constants.OWNERSHIP_TYPES
@@ -20,6 +21,8 @@ import com.kophe.leskladlib.repository.images.DefaultImagesRepository
 import com.kophe.leskladlib.repository.images.ImagesRepository
 import com.kophe.leskladlib.repository.issuance.DefaultIssuanceRepository
 import com.kophe.leskladlib.repository.issuance.IssuanceRepository
+import com.kophe.leskladlib.repository.deliverynote.DefaultDeliveryNoteRepository
+import com.kophe.leskladlib.repository.deliverynote.DeliveryNoteRepository
 import com.kophe.leskladlib.repository.items.DefaultItemsRepository
 import com.kophe.leskladlib.repository.items.ItemsRepository
 import com.kophe.leskladlib.repository.locations.DefaultLocationsRepository
@@ -44,6 +47,7 @@ class DataModule {
             ITEMS,
             SUBLOCATIONS,
             ISSUANCE,
+            DELIVERYNOTE,
             "",
             "users",
             "admin_users",
@@ -127,6 +131,17 @@ class DataModule {
         itemsRepository: ItemsRepository,
         userProfileRepository: UserProfileRepository
     ): IssuanceRepository = DefaultIssuanceRepository(
+        loggingUtil, repositoryBuilder, locationsRepository, itemsRepository, null, userProfileRepository
+    )
+
+    @Provides
+    @Singleton
+    internal fun provideDeliveryNoteRepository(
+        loggingUtil: LoggingUtil,
+        locationsRepository: LocationsRepository,
+        itemsRepository: ItemsRepository,
+        userProfileRepository: UserProfileRepository
+    ): DeliveryNoteRepository = DefaultDeliveryNoteRepository(
         loggingUtil, repositoryBuilder, locationsRepository, itemsRepository, null, userProfileRepository
     )
 

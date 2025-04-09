@@ -7,6 +7,7 @@ import java.io.File
 interface ExportUtil {
     fun exportItemsFile(items: List<Item>, name: String): File?
     fun exportIssuance(issuance: Issuance, name: String): File?
+    fun exportDeliveryNote(deliverynote: DeliveryNote, name: String): File?
 
     fun itemToText(item: Item): String
 }

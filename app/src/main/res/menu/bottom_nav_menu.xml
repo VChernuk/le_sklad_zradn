@@ -11,4 +11,9 @@
         android:icon="@drawable/black_warehouse_building_17215"
         android:title="Майно" />
 
+    <item
+        android:id="@+id/deliveryNoteListFragment"
+        android:icon="@drawable/deliverynote"
+        android:title="Накладні" />
+
 </menu>

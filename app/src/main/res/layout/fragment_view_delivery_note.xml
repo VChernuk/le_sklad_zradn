@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kophe.le_sklad_zradn.screens.viewdeliverynote.ViewDeliveryNoteViewModel" />
+
+    </data>
+
+    <!-- TODO: empty state-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_almost_medium">
+
+            <TextView
+                style="@style/defaultTextAccented"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_almost_medium"
+                android:text="@string/location_to_pass" />
+
+            <TextView
+                android:id="@+id/deliverynoteLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_small" />
+
+            <TextView
+                style="@style/defaultTextAccented"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_almost_medium"
+                android:text="Позивний отримувача" />
+
+            <TextView
+                android:id="@+id/callSighTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_small" />
+
+            <TextView
+                style="@style/defaultTextAccented"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_almost_medium"
+                android:text="@string/comment" />
+
+            <TextView
+                android:id="@+id/passingNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|top" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/deliverynoteItemsList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_row" />
+
+            <Button
+                android:id="@+id/buttonReissue"
+                style="@style/defaultButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_small"
+                android:onClick="@{(view)->viewModel.submit()}"
+                android:text="Перевидати"
+                android:textAlignment="center"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/view_loading"
+            app:viewModel="@{viewModel}" />
+
+    </FrameLayout>
+
+</layout>
