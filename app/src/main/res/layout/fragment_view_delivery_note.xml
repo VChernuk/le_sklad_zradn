@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_small"
                 android:onClick="@{(view)->viewModel.submit()}"
-                android:text="Перевидати"
+                android:text="В нову накладну"
                 android:textAlignment="center"
                 android:visibility="gone" />
 

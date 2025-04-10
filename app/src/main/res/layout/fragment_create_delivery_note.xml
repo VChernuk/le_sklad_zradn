@@ -22,6 +22,39 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_almost_medium">
 
+<!--            -&#45;&#45;&#45;&#45;&#45;&#45;z-->
+<TextView
+    android:id="@+id/labelDeliveryNoteNumber"
+    style="@style/defaultTextAccented"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Номер накладної" />
+
+            <EditText
+    android:id="@+id/deliveryNoteNumberET"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="number"
+    android:inputType="text"
+    android:onTextChanged="@{(text, start, before, count) -> viewModel.onDeliveryNoteNumberTextChange(text)}" />
+<TextView
+android:id="@+id/labelDeliveryNoteDate"
+style="@style/defaultTextAccented"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Дата підписання" />
+
+
+        <EditText
+android:id="@+id/deliveryNoteDateET"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="date"
+android:inputType="text"
+android:onTextChanged="@{(text, start, before, count) -> viewModel.onDeliveryNoteDateTextChange(text)}" />
+
+            <!--            &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
             <TextView
                 android:id="@+id/labelPassLocation"
                 style="@style/defaultTextAccented"
@@ -103,7 +136,7 @@
                     android:layout_marginHorizontal="@dimen/spacing_small"
                     android:layout_weight="1"
                     android:enabled="@{viewModel.submitAvailable}"
-                    android:text="Видати" />
+                    android:text="Готово" />
 
                 <Button
                     android:id="@+id/buttonCreate"
@@ -123,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_small"
-                android:text="Перевидати"
+                android:text="Перев5идати"
                 android:textAlignment="center"
                 android:visibility="gone" />
         </LinearLayout>

@@ -32,6 +32,9 @@ class CreateDeliveryNoteViewModel @Inject constructor(
     val originalQuantities = mutableMapOf<String, Int>()
     private var notes = ""
     private var receiver = ""
+    private var deliverynotedate = ""
+    private var deliverynotenumber = ""
+
 
     //TODO: save location between launches
     val locationEntries = MutableLiveData<List<String>>()
@@ -91,6 +94,14 @@ class CreateDeliveryNoteViewModel @Inject constructor(
         super.start()
     }
 
+    fun onDeliveryNoteNumberTextChange(text: CharSequence) {
+        deliverynotenumber = text.toString()
+    }
+
+    fun onDeliveryNoteDateTextChange(text: CharSequence) {
+        deliverynotedate = text.toString()
+    }
+
     fun onCommentTextChange(text: CharSequence) {
         notes = text.toString()
     }
@@ -120,6 +131,8 @@ class CreateDeliveryNoteViewModel @Inject constructor(
         performTask<Any?, LSError>({
             deliverynoteRepository.createDeliveryNote(
                 items = selectedItems.toMutableList(), DeliveryNoteInfoContainer(
+                    deliverynotenumber,
+                    deliverynotedate,
                     from,
                     receiver,
                     location,
