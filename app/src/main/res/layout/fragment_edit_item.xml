@@ -89,22 +89,27 @@
                     layout="@layout/view_item_category"
                     app:viewModel="@{viewModel}" />
 
-                <!--мітка для вибору власності-->
-                <TextView
-                    style="@style/defaultTextAccented"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_extra_small"
-                    android:text="Власність" />
+                <include
+                    android:id="@+id/itemOwnershipView"
+                    layout="@layout/view_item_ownership"
+                    app:viewModel="@{viewModel}" />
 
-                <!--вибір власності-->
-                <Spinner
-                    android:id="@+id/spinnerOwnershipType"
-                    style="@style/defaultSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_tiny"
-                    app:onItemSelected="@{viewModel.ownershipSelectionListener}" />
+<!--                &lt;!&ndash;мітка для вибору власності&ndash;&gt;-->
+<!--                <TextView-->
+<!--                    style="@style/defaultTextAccented"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/spacing_extra_small"-->
+<!--                    android:text="Власність" />-->
+
+<!--                &lt;!&ndash;вибір власності&ndash;&gt;-->
+<!--                <Spinner-->
+<!--                    android:id="@+id/spinnerOwnershipType"-->
+<!--                    style="@style/defaultSpinner"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="@dimen/spacing_tiny"-->
+<!--                    app:onItemSelected="@{viewModel.ownershipSelectionListener}" />-->
 
                 <include
                     android:id="@+id/itemQuantity"

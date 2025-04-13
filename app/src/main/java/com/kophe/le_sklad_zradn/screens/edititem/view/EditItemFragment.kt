@@ -60,6 +60,7 @@ class EditItemFragment : BaseItemFragment(), OnItemSelectedListener<CommonItem> 
             currentItem.location = it.location
             currentItem.notes = it.notes
             currentItem.ownershipType = it.ownershipType
+            currentItem.deliveryNote = it.deliveryNote
             currentItem.quantity = it.quantity
             currentItem.setOptions = it.setOptions
             currentItem.sn = it.sn
@@ -157,7 +158,11 @@ class EditItemFragment : BaseItemFragment(), OnItemSelectedListener<CommonItem> 
         }
         viewModel.ownershipTypeEntries.observe(viewLifecycleOwner) {
             loggingUtil.log("${loggingTag()} will set ownership type to $it")
-            binding?.spinnerOwnershipType?.setSpinnerValue(item.ownershipType?.title)
+            binding?.itemOwnershipView?.spinnerOwnershipType?.setSpinnerValue(item.ownershipType?.title)
+        }
+        viewModel.deliveryNoteEntries.observe(viewLifecycleOwner) {
+            loggingUtil.log("${loggingTag()} will set ownership type to $it")
+            binding?.itemOwnershipView?.spinnerDeliveryNoteNumber?.setSpinnerValue(item.deliveryNote?.deliveryNoteNumber)
         }
         if (viewModel.currentItem.history.isEmpty()) {
             binding?.historyRecyclerView?.visibility = GONE

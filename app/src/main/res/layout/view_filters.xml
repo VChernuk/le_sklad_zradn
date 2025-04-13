@@ -85,6 +85,21 @@
             android:layout_marginVertical="@dimen/spacing_small"
             app:onItemSelected="@{viewModel.ownershipSelectionListener}" />
 
+        <TextView
+            android:id="@+id/labelDeliveryNoteNumber"
+            style="@style/defaultTextAccented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Накладна" />
+
+        <Spinner
+            android:id="@+id/spinnerDeliveryNoteNumber"
+            style="@style/defaultSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            app:onItemSelected="@{viewModel.deliveryNoteNumberSelectionListener}" />
+
     </LinearLayout>
 
 </layout>

@@ -39,6 +39,13 @@ class FilterViewModel @Inject constructor(
             currentFilter.sublocation = if (sublocation == allSubocations) null else sublocation
         }
     }
+    override val deliveryNoteNumberSelectionListener = object : ItemSelectedListener {
+        override fun onItemSelected(item: Any?) {
+            log("onDeliveryNoteNumberSelected(...): $item")
+            val deliveryNote = deliveryNotes.find { it.deliveryNoteNumber == item }
+            currentFilter.deliveryNote = deliveryNote
+        }
+    }
     override val ownershipSelectionListener = object : ItemSelectedListener {
         override fun onItemSelected(item: Any?) {
             val ownershipType = ownershipTypes.find { it.title == item }
@@ -46,6 +53,7 @@ class FilterViewModel @Inject constructor(
                 if (ownershipType == allOwnershipTypes) null else ownershipType
         }
     }
+
     override val categorySelectionListener = object : ItemSelectedListener {
         override fun onItemSelected(item: Any?) {
             val category = categories.find { it.title == item }

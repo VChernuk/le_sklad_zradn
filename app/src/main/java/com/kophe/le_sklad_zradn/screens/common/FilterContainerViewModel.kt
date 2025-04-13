@@ -5,6 +5,7 @@ import com.kophe.leskladlib.logging.LoggingUtil
 import com.kophe.leskladlib.repository.common.Category
 import com.kophe.leskladlib.repository.common.Location
 import com.kophe.leskladlib.repository.common.OwnershipType
+import com.kophe.leskladlib.repository.common.DeliveryNote
 import com.kophe.leskladlib.repository.common.Subcategory
 import com.kophe.leskladlib.repository.common.Sublocation
 import com.kophe.leskladuilib.ItemSelectedListener
@@ -13,6 +14,7 @@ abstract class FilterContainerViewModel(loggingUtil: LoggingUtil) : BaseViewMode
     abstract val locationSelectionListener: ItemSelectedListener
     abstract val sublocationSelectionListener: ItemSelectedListener
     abstract val ownershipSelectionListener: ItemSelectedListener
+    abstract val deliveryNoteNumberSelectionListener: ItemSelectedListener
     abstract val categorySelectionListener: ItemSelectedListener
     abstract val subcategorySelectionListener: ItemSelectedListener
 
@@ -21,11 +23,17 @@ abstract class FilterContainerViewModel(loggingUtil: LoggingUtil) : BaseViewMode
     val categoryEntries = MutableLiveData<List<String>>()
     val subcategoryEntries = MutableLiveData<List<String>>()
     val ownershipTypeEntries = MutableLiveData<List<String>>()
+    val deliveryNoteEntries = MutableLiveData<List<String>>()
 
     protected var ownershipTypes = emptyList<OwnershipType>()
         set(value) {
             field = value
             ownershipTypeEntries.postValue(value.map { it.title })
+        }
+    protected var deliveryNotes = emptyList<DeliveryNote>()
+        set(value) {
+            field = value
+            deliveryNoteEntries.postValue(value.map { it.deliveryNoteNumber ?: "-" })
         }
     protected var locations = emptyList<Location>()
         set(value) {
@@ -51,10 +59,12 @@ abstract class FilterContainerViewModel(loggingUtil: LoggingUtil) : BaseViewMode
     protected val emptyCategory = Category("-", emptyList(), "", 1)
     protected val emptySublocation = Sublocation("-", "")
     protected val emptyOwnershipType = OwnershipType("-", "")
+    protected val emptyDeliveryNote = OwnershipType("-", "")
 
     protected val allLocations = Location("Всі", "", emptyList())
     protected val allSubocations = Sublocation("Всі", "")
     protected val allOwnershipTypes = OwnershipType("Всі", "")
+    //protected val allDeliveryNotes = DeliveryNote("Всі", "")
     protected val allCategories = Category("Всі", emptyList(), "", -1)
     protected val allSubcategories = Subcategory("Всі", "", -1)
 }

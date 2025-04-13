@@ -131,7 +131,8 @@ class CreateItemFragment : BaseItemFragment(), OnItemSelectedListener<CommonItem
         binding?.itemCategoryView?.spinnerCategory?.setSpinnerValue(viewModel.currentItem.category?.title)
         binding?.itemCategoryView?.spinnerSubCategory?.setSpinnerValue(viewModel.currentItem.subcategories.firstOrNull()?.title)
         binding?.itemLocationView?.spinnerSublocation?.setSpinnerValue(viewModel.currentItem.sublocation?.title)
-        binding?.spinnerOwnershipType?.setSpinnerValue(viewModel.currentItem.ownershipType?.title)
+        binding?.itemOwnershipView?.spinnerOwnershipType?.setSpinnerValue(viewModel.currentItem.ownershipType?.title)
+        binding?.itemOwnershipView?.spinnerDeliveryNoteNumber?.setSpinnerValue(viewModel.currentItem.deliveryNote?.deliveryNoteNumber)
         binding?.itemQuantity?.itemQuantityFields?.visibility =
             viewModel.currentItem.quantity?.let { VISIBLE } ?: GONE
         binding?.itemQuantity?.itemQuantityCheckBox?.isChecked =

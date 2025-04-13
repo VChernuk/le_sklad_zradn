@@ -18,6 +18,7 @@ import com.kophe.leskladlib.repository.common.LSError.SimpleError
 import com.kophe.leskladlib.repository.common.Sublocation
 import com.kophe.leskladlib.repository.common.TaskResult.TaskError
 import com.kophe.leskladlib.repository.common.TaskResult.TaskSuccess
+import com.kophe.leskladlib.repository.deliverynote.DeliveryNoteRepository
 import com.kophe.leskladlib.repository.images.ImagesRepository
 import com.kophe.leskladlib.repository.issuance.IssuanceInfoContainer
 import com.kophe.leskladlib.repository.issuance.IssuanceRepository
@@ -39,6 +40,7 @@ class EditItemViewModel @Inject constructor(
     private val categoriesRepository: CategoriesRepository,
     private val imagesRepository: ImagesRepository,
     private val issuanceRepository: IssuanceRepository,
+    private val deliveryNoteRepository: DeliveryNoteRepository,
     private val userProfileRepository: UserProfileRepository
 ) : FilterContainerViewModel(loggingUtil) {
 
@@ -81,6 +83,13 @@ class EditItemViewModel @Inject constructor(
             updateSaveAvailability()
         }
     }
+    override val deliveryNoteNumberSelectionListener = object : ItemSelectedListener {
+        override fun onItemSelected(item: Any?) {
+            log("ondeliveryNoteSelected(...): $item")
+            currentItem.deliveryNote = deliveryNotes.find { it.deliveryNoteNumber == item }
+            updateSaveAvailability()
+        }
+    }
     override val categorySelectionListener = object : ItemSelectedListener {
         override fun onItemSelected(item: Any?) {
             log("onCategorySelected(...): $item")
@@ -89,6 +98,7 @@ class EditItemViewModel @Inject constructor(
             updateSaveAvailability()
         }
     }
+
     override val subcategorySelectionListener = object : ItemSelectedListener {
         override fun onItemSelected(item: Any?) {
             log("onSubcategorySelected(...): $item")

@@ -113,6 +113,7 @@ class DataModule {
         locationsRepository: LocationsRepository,
         ownershipRepository: OwnershipRepository,
         categoriesRepository: CategoriesRepository,
+        deliveryNoteRepository: DeliveryNoteRepository,
         connectionStateMonitor: ConnectionStateMonitor
     ): ItemsRepository = DefaultItemsRepository(
         loggingUtil,
@@ -120,6 +121,7 @@ class DataModule {
         locationsRepository = locationsRepository,
         categoriesRepository = categoriesRepository,
         ownershipRepository = ownershipRepository,
+        deliveryNoteRepository = deliveryNoteRepository,
         unitsRepository = null
     )
 
@@ -140,9 +142,11 @@ class DataModule {
         loggingUtil: LoggingUtil,
         locationsRepository: LocationsRepository,
         itemsRepository: ItemsRepository,
-        userProfileRepository: UserProfileRepository
+        userProfileRepository: UserProfileRepository,
+        connectionStateMonitor: ConnectionStateMonitor
     ): DeliveryNoteRepository = DefaultDeliveryNoteRepository(
         loggingUtil, repositoryBuilder, locationsRepository, itemsRepository, null, userProfileRepository
+        , connectionStateMonitor
     )
 
 }

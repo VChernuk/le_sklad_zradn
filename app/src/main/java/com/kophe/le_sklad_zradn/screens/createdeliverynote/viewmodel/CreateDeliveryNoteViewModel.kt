@@ -34,6 +34,7 @@ class CreateDeliveryNoteViewModel @Inject constructor(
     private var receiver = ""
     private var deliverynotedate = ""
     private var deliverynotenumber = ""
+    private var deliveryNotePIB = ""
 
 
     //TODO: save location between launches
@@ -133,6 +134,7 @@ class CreateDeliveryNoteViewModel @Inject constructor(
                 items = selectedItems.toMutableList(), DeliveryNoteInfoContainer(
                     deliverynotenumber,
                     deliverynotedate,
+                    deliveryNotePIB,
                     from,
                     receiver,
                     location,

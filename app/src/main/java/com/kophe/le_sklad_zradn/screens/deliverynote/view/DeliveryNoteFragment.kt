@@ -59,6 +59,9 @@ class DeliveryNoteFragment : BaseViewModelFragment<FragmentDeliveryNoteBinding, 
         super.onCreate(savedInstanceState)
         AndroidSupportInjection.inject(this)
         loggingUtil.log("${loggingTag()} onCreate(...)")
+
+        setHasOptionsMenu(true)
+
         viewModel.viewModelEvent.observe(this) {
             (it as? InfoAvailable<Item>)?.let { event -> showItem(event.item) }
         }

@@ -169,7 +169,10 @@ abstract class BaseItemFragment :
             binding?.itemLocationView?.spinnerSublocation?.setSpinnerEntries(it)
         }
         viewModel.ownershipTypeEntries.observe(viewLifecycleOwner) {
-            binding?.spinnerOwnershipType?.setSpinnerEntries(it)
+            binding?.itemOwnershipView?.spinnerOwnershipType?.setSpinnerEntries(it)
+        }
+        viewModel.deliveryNoteEntries.observe(viewLifecycleOwner) {
+            binding?.itemOwnershipView?.spinnerDeliveryNoteNumber?.setSpinnerEntries(it)
         }
         binding?.photosView?.imagesRecycler?.adapter = imagesAdapter
         binding?.itemButtons?.buttonClear?.setOnClickListener {
