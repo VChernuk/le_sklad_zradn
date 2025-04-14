@@ -25,6 +25,7 @@ import com.kophe.leskladlib.repository.deliverynote.DefaultDeliveryNoteRepositor
 import com.kophe.leskladlib.repository.deliverynote.DeliveryNoteRepository
 import com.kophe.leskladlib.repository.items.DefaultItemsRepository
 import com.kophe.leskladlib.repository.items.ItemsRepository
+import com.kophe.leskladlib.repository.units.UnitsRepository
 import com.kophe.leskladlib.repository.locations.DefaultLocationsRepository
 import com.kophe.leskladlib.repository.locations.LocationsRepository
 import com.kophe.leskladlib.repository.ownership.DefaultOwnershipRepository
@@ -141,12 +142,17 @@ class DataModule {
     internal fun provideDeliveryNoteRepository(
         loggingUtil: LoggingUtil,
         locationsRepository: LocationsRepository,
-        itemsRepository: ItemsRepository,
+        //itemsRepository: ItemsRepository,
         userProfileRepository: UserProfileRepository,
+        unitsRepository: UnitsRepository,
         connectionStateMonitor: ConnectionStateMonitor
     ): DeliveryNoteRepository = DefaultDeliveryNoteRepository(
-        loggingUtil, repositoryBuilder, locationsRepository, itemsRepository, null, userProfileRepository
-        , connectionStateMonitor
+        loggingUtil = loggingUtil,
+        builder = repositoryBuilder,
+        locationsRepository = locationsRepository, //itemsRepository
+        unitsRepository = unitsRepository
+        , userProfileRepository = userProfileRepository
+        , connection = connectionStateMonitor
     )
 
 }
