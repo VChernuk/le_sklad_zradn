@@ -29,7 +29,7 @@
     style="@style/defaultTextAccented"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Номер накладної" />
+    android:text="@string/delivery_note_number" />
 
             <EditText
                 android:id="@+id/deliveryNoteNumberET"
@@ -43,7 +43,7 @@ android:id="@+id/labelDeliveryNoteDate"
 style="@style/defaultTextAccented"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
-android:text="Дата підписання" />
+android:text="@string/delivery_note_date" />
 
 
             <EditText
@@ -51,7 +51,7 @@ android:text="Дата підписання" />
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="date"
-                android:inputType="datetime|date"
+                android:inputType="date"
                 android:onTextChanged="@{(text, start, before, count) -> viewModel.onDeliveryNoteDateTextChange(text)}" />
 
             <!--            &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
@@ -61,7 +61,7 @@ android:text="Дата підписання" />
                 style="@style/defaultTextAccented"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Отримувач (локація)" />
+                android:text="@string/delivery_note_location_to_pass" />
 
             <Spinner
                 android:id="@+id/spinnerLocation"
@@ -96,7 +96,7 @@ android:text="Дата підписання" />
                     android:id="@+id/receiverET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Позивний отримувача"
+                    android:hint="@string/delivery_note_signatory"
                     android:inputType="text"
                     android:onTextChanged="@{(text, start, before, count) -> viewModel.onReceiverTextChange(text)}" />
 

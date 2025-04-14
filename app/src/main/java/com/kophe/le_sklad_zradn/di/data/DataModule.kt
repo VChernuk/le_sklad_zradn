@@ -144,13 +144,13 @@ class DataModule {
         locationsRepository: LocationsRepository,
         //itemsRepository: ItemsRepository,
         userProfileRepository: UserProfileRepository,
-        unitsRepository: UnitsRepository,
+        //unitsRepository: UnitsRepository,
         connectionStateMonitor: ConnectionStateMonitor
     ): DeliveryNoteRepository = DefaultDeliveryNoteRepository(
         loggingUtil = loggingUtil,
         builder = repositoryBuilder,
         locationsRepository = locationsRepository, //itemsRepository
-        unitsRepository = unitsRepository
+        unitsRepository = null
         , userProfileRepository = userProfileRepository
         , connection = connectionStateMonitor
     )

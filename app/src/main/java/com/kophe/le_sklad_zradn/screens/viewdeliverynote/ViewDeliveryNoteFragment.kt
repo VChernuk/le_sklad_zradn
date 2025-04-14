@@ -110,6 +110,8 @@ class ViewDeliveryNoteFragment :
             val args = ViewDeliveryNoteFragmentArgs.fromBundle(bundle)
             if (args.deliverynote.notes.isEmpty()) binding?.passingNotes?.visibility = GONE
             else binding?.passingNotes?.text = args.deliverynote.notes
+            binding?.deliverynoteNumberTV?.text = args.deliverynote.deliveryNoteNumber ?: "-"
+            binding?.deliverynoteSignatoryTV?.text = args.deliverynote.deliveryNotePIB ?: "-"
             binding?.callSighTV?.text = args.deliverynote.receiverCallSign ?: "-"
             binding?.deliverynoteLocation?.text = args.deliverynote.to
             viewModel.selectedItems.addAll(args.deliverynote.items.map { Item(it) })

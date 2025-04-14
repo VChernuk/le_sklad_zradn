@@ -161,7 +161,7 @@ class EditItemFragment : BaseItemFragment(), OnItemSelectedListener<CommonItem> 
             binding?.itemOwnershipView?.spinnerOwnershipType?.setSpinnerValue(item.ownershipType?.title)
         }
         viewModel.deliveryNoteEntries.observe(viewLifecycleOwner) {
-            loggingUtil.log("${loggingTag()} will set ownership type to $it")
+            loggingUtil.log("${loggingTag()} will set deliveryNote type to $it")
             binding?.itemOwnershipView?.spinnerDeliveryNoteNumber?.setSpinnerValue(item.deliveryNote?.deliveryNoteNumber)
         }
         if (viewModel.currentItem.history.isEmpty()) {

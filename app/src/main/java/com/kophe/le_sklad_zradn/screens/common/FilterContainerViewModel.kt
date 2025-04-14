@@ -59,7 +59,7 @@ abstract class FilterContainerViewModel(loggingUtil: LoggingUtil) : BaseViewMode
     protected val emptyCategory = Category("-", emptyList(), "", 1)
     protected val emptySublocation = Sublocation("-", "")
     protected val emptyOwnershipType = OwnershipType("-", "")
-    protected val emptyDeliveryNote = OwnershipType("-", "")
+    //protected val emptyDeliveryNote = OwnershipType("-", "")
 
     protected val allLocations = Location("Всі", "", emptyList())
     protected val allSubocations = Sublocation("Всі", "")

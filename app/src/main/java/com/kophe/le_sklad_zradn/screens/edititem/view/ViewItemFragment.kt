@@ -126,6 +126,8 @@ class ViewItemFragment : BaseViewModelFragment<FragmentViewItemBinding, EditItem
 
         setupOptionalInfo(item.notes, binding?.labelComment, binding?.comment)
         setupOptionalInfo(item.ownershipType?.title, binding?.labelOwnership, binding?.ownership)
+
+        setupOptionalInfo(item.deliveryNote?.deliveryNoteNumber, binding?.labelDeliveryNote, binding?.deliverynoteTV)
         setupOptionalInfo(item.sublocation?.title, binding?.labelSublocation, binding?.sublocation)
 
         if (item.images.isNullOrEmpty()) {

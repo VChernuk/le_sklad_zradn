@@ -149,7 +149,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:text="Ownership" />
+                <TextView
+                    android:id="@+id/labelDeliveryNote"
+                    style="@style/defaultTextAccented"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_almost_medium"
+                    android:text="@string/delivery_note" />
 
+                <TextView
+                    android:id="@+id/deliverynoteTV"
+                    style="@style/defaultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="-" />
                 <TextView
                     android:id="@+id/labelTitle"
                     style="@style/defaultTextAccented"

@@ -86,6 +86,7 @@ class ItemsFragment : BaseViewModelFragment<FragmentItemsBinding, ItemsViewModel
                 val subcategoryTitle =
                     it.subcategory?.title?.let { subcategory -> "$subcategory/" } ?: ""
                 val ownershipTitle = it.ownershipType?.title?.let { type -> "$type/" } ?: ""
+                //val deliveryNote = it.deliveryNote?.title?.let { type -> "$type/" } ?: ""
                 val responsibleUnitTitle = it.responsibleUnit?.title?.let { unit -> "$unit/" } ?: ""
                 binding?.filterInfoText?.text =
                     locationTitle + sublocationTitle + categoryTitle + subcategoryTitle + ownershipTitle + responsibleUnitTitle
