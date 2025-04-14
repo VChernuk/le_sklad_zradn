@@ -77,7 +77,7 @@ class MainFragment : BaseViewModelFragment<FragmentMainBinding, HomeNavigationVi
 
         baseActivity?.updNav(
             navController,
-            AppBarConfiguration.Builder(R.id.itemsFragment, R.id.issuanceFragment)
+            AppBarConfiguration.Builder(R.id.itemsFragment, R.id.issuanceFragment, R.id.deliveryNoteFragment)
                 .setDrawerLayout(binding?.drawerLayout).build()
         )
 

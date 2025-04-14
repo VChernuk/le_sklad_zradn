@@ -57,10 +57,9 @@ class DeliveryNoteFragment : BaseViewModelFragment<FragmentDeliveryNoteBinding, 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         AndroidSupportInjection.inject(this)
         loggingUtil.log("${loggingTag()} onCreate(...)")
-
-        setHasOptionsMenu(true)
 
         viewModel.viewModelEvent.observe(this) {
             (it as? InfoAvailable<Item>)?.let { event -> showItem(event.item) }
@@ -114,6 +113,7 @@ class DeliveryNoteFragment : BaseViewModelFragment<FragmentDeliveryNoteBinding, 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.deliverynote_menu, menu)
+
     }
 
     override fun selectItem(item: DeliveryNote) {
