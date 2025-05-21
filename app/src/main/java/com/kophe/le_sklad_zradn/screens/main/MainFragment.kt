@@ -67,7 +67,7 @@ class MainFragment : BaseViewModelFragment<FragmentMainBinding, HomeNavigationVi
         val navController = navHostFragment.findNavController()
         binding?.bottomNavigationView?.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.itemsFragment || destination.id == R.id.issuanceFragment) {
+            if (destination.id == R.id.itemsFragment || destination.id == R.id.issuanceFragment || destination.id == R.id.deliveryNoteFragment) {
                 binding?.bottomNavigationView?.visibility = VISIBLE
             } else {
                 binding?.bottomNavigationView?.visibility = GONE

@@ -97,6 +97,9 @@ class FilterFragment : BaseViewModelFragment<FragmentFilterBinding, FilterViewMo
         viewModel.ownershipTypeEntries.observe(viewLifecycleOwner) {
             binding?.filtersView?.spinnerOwnershipType?.setSpinnerEntries(it)
         }
+        viewModel.deliveryNoteEntries.observe(viewLifecycleOwner) {
+            binding?.filtersView?.spinnerDeliveryNoteNumber?.setSpinnerEntries(it)
+        }
         arguments?.let { bundle ->
             val args = FilterFragmentArgs.fromBundle(bundle)
             args.currentFilter?.let { filter ->
@@ -127,6 +130,7 @@ class FilterFragment : BaseViewModelFragment<FragmentFilterBinding, FilterViewMo
                         binding?.filtersView?.spinnerOwnershipType?.setSpinnerValue(viewModel.currentFilter.ownershipType?.title)
                     }
                 }
+
             }
         }
     }
